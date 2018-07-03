@@ -26,8 +26,33 @@
             <!-- Right side of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
-                <li><a href="#">Sign In</a></li>
-                <li><a href="#">Sign Up</a></li>
+                @guest
+                    <li><a href="{{route('login')}}">Sign In</a></li>
+                    <li><a href="{{route('register')}}">Sign Up</a></li>
+                 @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="drop" role="button" aria-expanded="false">
+                            <span class="user-avatar pull-left" style="margin-right:8px;margin-top:-5px">
+
+                            </span>
+                            {{Auth::user()->name}} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{route('logout')}}"
+                                   onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+
+                                </a>
+
+                                <form id="logout-from" action="{{route('logout')}}" method="POST" style="display:none">
+                                    {{scrf_field()}}
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                    @endguest
             </ul>
         </div>
     </div>
