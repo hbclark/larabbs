@@ -36,19 +36,27 @@
                             <span class="user-avatar pull-left" style="margin-right:8px;margin-top:-5px">
 
                             </span>
+                            <img src="{{Auth::user()->gravatar('40')}}">
                             {{Auth::user()->name}} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
+                                <a href="{{route('users.edit',Auth::id())}}">
+                                    Edit profile
+                                </a>
+                            </li>
+
+                            <li>
                                 <a href="{{route('logout')}}"
                                    onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
+                                    Logout
 
                                 </a>
 
-                                <form id="logout-from" action="{{route('logout')}}" method="POST" style="display:none">
-                                    {{scrf_field()}}
+                                <form id="logout-from" action="{{route('logout')}}" method="POST" style="display:none;">
+                                    {{csrf_field()}}
                                 </form>
                             </li>
                         </ul>
