@@ -9,16 +9,16 @@
                 <div class="panel-body">
                     <div class="media">
                         <div align="center">
-                            <img class="thumbnail img-responsive" src="" alt="user img">
+                            <img class="thumbnail img-responsive" src="{{Auth::user()->gravatar('200')}}" alt="user img">
                         </div>
 
                         <div class="media-body">
                             <hr>
                             <h4><strong>User profile</strong></h4>
-                            <p>Lorem ipsum dolor</p>
+                            <p>{{$user->introduction}}</p>
                             <hr>
-                            <h4><strong>registered on</strong></h4>
-                            <p>Feb 02 2018</p>
+                            <h4><strong>Registered on</strong></h4>
+                            <p>{{$user->created_at->diffForHumans()}}</p>
                         </div>
                     </div>
                 </div>

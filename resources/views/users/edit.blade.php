@@ -8,10 +8,12 @@
                 </h4>
             </div>
 
+            @include('common.error')
+
             <div class="panel-body">
 
-                <form action="{{route('users.update',$user->id)}}" method="post" accept-charset="utf-8">
-                    <input type="hidden" name="method" value="put">
+                <form action="{{route('users.update',$user)}}" method="post" accept-charset="utf-8">
+                    <input type="hidden" name="_method" value="PATCH">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
 
                     <div class="form-group">
@@ -24,12 +26,16 @@
                         <input class="form-control" type="text" name="email" id="email-field" value="{{old('email',$user->email)}}" />
                     </div>
 
-                    <div class="form-control">
+                    <div class="form-group">
                         <label for="introduction-field">Introduction</label>
                         <textarea name="introduction" id="introduction-field" class="form-control" rows="3">{{old('introduction',$user->introduction)}}</textarea>
+                    </div>
+                    <div class="well well-sm">
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-@stop
+
+@endsection

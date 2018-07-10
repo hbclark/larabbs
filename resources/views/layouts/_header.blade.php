@@ -32,17 +32,18 @@
                     <li><a href="{{route('register')}}">Sign Up</a></li>
                  @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="drop" role="button" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span class="user-avatar pull-left" style="margin-right:8px;margin-top:-5px">
+                                <img src="{{Auth::user()->gravatar('35')}}">
 
                             </span>
-                            <img src="{{Auth::user()->gravatar('40')}}">
+
                             {{Auth::user()->name}} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{route('users.edit',Auth::id())}}">
+                                <a href="{{route('users.edit', Auth::id())}}">
                                     Edit profile
                                 </a>
                             </li>
