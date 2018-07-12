@@ -12,7 +12,8 @@
 
             <div class="panel-body">
 
-                <form action="{{route('users.update',$user)}}" method="post" accept-charset="utf-8">
+                <form action="{{route('users.update',$user)}}" method="post" accept-charset="utf-8"
+                    enctype="multipart/form-data">
                     <input type="hidden" name="_method" value="PATCH">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
 
@@ -29,6 +30,15 @@
                     <div class="form-group">
                         <label for="introduction-field">Introduction</label>
                         <textarea name="introduction" id="introduction-field" class="form-control" rows="3">{{old('introduction',$user->introduction)}}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="avatar-label">User Avatar</label>
+                        <input type="file" name="avatar">
+                        @if($user->avatar)
+                            <br>
+                            <img class="thumbnail img-responsive" src="{{$user->avatar}}" width="200">
+                        @endif
                     </div>
                     <div class="well well-sm">
                         <button type="submit" class="btn btn-primary">Save</button>
