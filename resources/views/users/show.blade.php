@@ -9,7 +9,11 @@
                 <div class="panel-body">
                     <div class="media">
                         <div align="center">
-                            <img class="thumbnail img-responsive" src="{{Auth::user()->gravatar('200')}}" alt="user img">
+                            @if($user->avatar)
+                                <img class="thumbnail img-responsive" src="{{$user->avatar}}" width="300px" height="300px">
+                            @else
+                                <img class="thumbnail img-responsive" src="{{Auth::user()->gravatar('200')}}" alt="user img">
+                            @endif
                         </div>
 
                         <div class="media-body">
