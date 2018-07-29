@@ -42,6 +42,13 @@
             {{--user's post --}}
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <ul class="nav nav-tabs">
+
+                            <li class="active"><a href="#">{{$user->name}}'s topics</a></li>
+                            <li><a href="#">user's replies</a></li>
+                    </ul>
+                        @include('users._topics', ['topics' => $user->topics()->recent()->paginate(5)])
+
 
                 </div>
             </div>
