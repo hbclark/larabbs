@@ -20,7 +20,9 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- left side of navbar -->
             <ul class="nav navbar-nav">
-
+                <li class="{{active_class(if_route('topics.index'))}}"><a href="{{route('topics.index')}}">Topics</a></li>
+                <li class="{{active_class((if_route('categories.show')&&if_route_param('category',1)))}}"><a href="{{route('categories.show',1)}}">Share</a></li>
+                <li class="{{active_class((if_route('categories.show') &&if_route_param('category',2)))}}"><a href="{{route('categories.show',2)}}">Tutorial</a></li>
             </ul>
 
 
