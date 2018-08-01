@@ -21,7 +21,7 @@
             <!-- left side of navbar -->
             <ul class="nav navbar-nav">
                 <li class="{{active_class(if_route('topics.index'))}}"><a href="{{route('topics.index')}}">Topics</a></li>
-                <li class="{{active_class((if_route('categories.show')&&if_route_param('category',1)))}}"><a href="{{route('categories.show',1)}}">Share</a></li>
+                <li class="{{active_class((if_route('categories.show') &&if_route_param('category',1)))}}"><a href="{{route('categories.show',1)}}">Share</a></li>
                 <li class="{{active_class((if_route('categories.show') &&if_route_param('category',2)))}}"><a href="{{route('categories.show',2)}}">Tutorial</a></li>
             </ul>
 
@@ -33,13 +33,18 @@
                     <li><a href="{{route('login')}}">Sign In</a></li>
                     <li><a href="{{route('register')}}">Sign Up</a></li>
                  @else
+                    <li>
+                        <a href="{{route('topics.create')}}">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        </a>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span class="user-avatar pull-left" style="margin-right:8px;margin-top:-5px">
                                 @if(Auth::user()->avatar)
                                     <img src="{{Auth::user()->avatar}}" class="img-responsive img-circle" width="30px" heigh="30px" >
                                 @else
-                                    <img src="Auth::user->gravatar('35">
+                                    <img src="Auth::user()->gravatar('35')">
                                 @endif
 
                             </span>

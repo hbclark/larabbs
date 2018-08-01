@@ -20,7 +20,9 @@ class TopicRequest extends Request
             case 'PATCH':
             {
                 return [
-                    // UPDATE ROLES
+                    'title'=>'required|min:2',
+                    'body'=>'required|min:3',
+                    'category_id'=>'required|numeric',
                 ];
             }
             case 'GET':
@@ -35,7 +37,8 @@ class TopicRequest extends Request
     public function messages()
     {
         return [
-            // Validation messages
+            'title.min' =>'at least 2 chars',
+            'body.min' =>'at least 3 chars',
         ];
     }
 }
