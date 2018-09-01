@@ -19,6 +19,7 @@ class CreateTopicsTable extends Migration
             $table->integer('order')->unsigned()->default(0);
             $table->text('excerpt');
             $table->string('slug')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
 	}

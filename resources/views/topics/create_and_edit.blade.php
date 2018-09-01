@@ -39,7 +39,7 @@
                     <select class="form-control" name="category_id" required>
                         <option value="" hidden disabled selected>Please select category</option>
                         @foreach($categories as $value)
-                            <option value="{{$value->id}}">{{$value->name}}</option>
+                            <option value="{{$value->id}}" {{$topic->category_id==$value->id?'selected':''}}>{{$value->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -52,7 +52,8 @@
                         <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true">Save</span></button>
                     </div>
                 </form>
-            </div>
+                    </div>
+
         </div>
     </div>
 </div>

@@ -1,9 +1,15 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Topic extends Model
+
 {
+    use softDeletes;
+    protected  $dates = ['deleted_at'];
     protected $fillable = ['title', 'body',  'category_id',  'excerpt', 'slug'];
 
     public function category()
